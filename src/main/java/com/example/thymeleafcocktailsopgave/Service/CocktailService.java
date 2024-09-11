@@ -1,6 +1,7 @@
 package com.example.thymeleafcocktailsopgave.Service;
 
 import com.example.thymeleafcocktailsopgave.Cocktail.Cocktail;
+import com.example.thymeleafcocktailsopgave.Cocktail.CocktailOrder;
 import com.example.thymeleafcocktailsopgave.Repository.CocktailRepository;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,10 @@ public class CocktailService {
     //GETMAPPING-ATTRACTION{NAME}
     public Cocktail findCocktailByName(String name) {
         return cocktailRepository.findCocktailByName(name);
+    }
+
+    public List<CocktailOrder> getAllCocktailOrders() {
+        return cocktailRepository.getAllCocktailOrders();
     }
 
 

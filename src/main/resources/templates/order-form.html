@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>Order form</title>
+</head>
+<body>
+<form action="#" th:action="@{/order}" th:object="${cocktailOrder}" method="post">
+    <label for="cocktailType">Cocktail Type:</label>
+    <select id="cocktailType" name="cocktailType" th:field="*{cocktailType}">
+        <option th:each="type : ${cocktailType}" th:value="${type}" th:text="${type.displayName}">Cocktail Type</option>
+    </select>
+    <br><br>
+
+    <label for="withIce">With ice:</label>
+    <input type="checkbox" id="withIce" th:name="withIce" th:value="*{withIce}">
+    <br><br>
+
+    <label for="shotAmount">Shot Amount:</label>
+    <div id="shotAmount" th:each="shot : ${shotAmount}">
+        <input type="radio" th:field="*{shotAmount}" th:value="${shot}" /> <span th:text="${shot.displayName}">
+    </span>
+    </div>
+    <br><br>
+    <button type="submit">Place Order</button>
+</form>
+
+</body>
+</html>

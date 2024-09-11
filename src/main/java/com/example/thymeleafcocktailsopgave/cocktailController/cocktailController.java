@@ -2,6 +2,9 @@ package com.example.thymeleafcocktailsopgave.cocktailController;
 
 
 import com.example.thymeleafcocktailsopgave.Cocktail.Cocktail;
+import com.example.thymeleafcocktailsopgave.Cocktail.CocktailOrder;
+import com.example.thymeleafcocktailsopgave.Cocktail.CocktailType;
+import com.example.thymeleafcocktailsopgave.Cocktail.ShotAmount;
 import com.example.thymeleafcocktailsopgave.Service.CocktailService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,6 +39,17 @@ public class cocktailController {
         List<Cocktail> cocktails = cocktailService.getAllCocktails();
         model.addAttribute("cocktails", cocktails);
         return "index";
+    }
+
+    @GetMapping("/order")
+    public String showOrderForm(Model model) {
+        CocktailOrder cocktailOrder = new CocktailOrder();
+        cocktailOrder.setShotAmount(ShotAmount.ONE);
+        model.addAttribute("cocktailOrder", cocktailOrder);
+        model.addAttribute("cocktailType", CocktailType.values());
+        model.addAttribute("withIce", cocktailOrder.isWithIce());
+        model.addAttribute("shotAmount", ShotAmount.values());
+        return "order-form";
     }
 
 

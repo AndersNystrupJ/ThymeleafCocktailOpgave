@@ -1,6 +1,7 @@
 package com.example.thymeleafcocktailsopgave.Repository;
 
 import com.example.thymeleafcocktailsopgave.Cocktail.Cocktail;
+import com.example.thymeleafcocktailsopgave.Cocktail.CocktailOrder;
 import com.example.thymeleafcocktailsopgave.Cocktail.Ingredient;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +14,7 @@ import java.util.List;
 public class CocktailRepository {
 
     private final List<Cocktail> cocktails = new ArrayList<>();
+    private final List<CocktailOrder> cocktailOrderList = new ArrayList<>();
 
     public CocktailRepository() {
         populateCocktails();
@@ -41,5 +43,9 @@ public class CocktailRepository {
             }
         }
         return cocktailMatch;
+    }
+
+    public List<CocktailOrder> getAllCocktailOrders() {
+        return cocktailOrderList;
     }
 }
