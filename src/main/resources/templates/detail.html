@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>Cocktail ingredients</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<h1 th:text="${cocktail.name}"></h1>
+<ul>
+    <li th:each="ingredient : ${cocktail.ingredient}" th:text="${ingredient.name}"> </li>
+
+</ul>
+
+<a href="/cocktails">Back to cocktails</a>
+</body>
+</html>
